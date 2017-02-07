@@ -20,8 +20,8 @@ public class DriveTrain extends Subsystem {
 	
 	
 	public DriveTrain(){
-		LiveWindow.addActuator("Drive Train", "Front_Left Motor", (Spark) leftMotor);
-		LiveWindow.addActuator("Drive Train", "Back Left Motor", (Spark) rightMotor);
+		LiveWindow.addActuator("Drive Train", "Left Motor", (Spark) leftMotor);
+		LiveWindow.addActuator("Drive Train", "Right Motor", (Spark) rightMotor);
 	}
 	
 	@Override
@@ -30,15 +30,19 @@ public class DriveTrain extends Subsystem {
 		
 	}
 	
-	public void drive(double left, double right) {
+	public void tankDrive(double left, double right) {
+		rightMotor.setInverted(false);
 		drive.tankDrive(left, right);
 		
 		SmartDashboard.putNumber("Left Speed", left);
 		SmartDashboard.putNumber("Right Speed", right);
 	}
 	
-	//Drives forward by distance in feet
-	public void drive(double distance){
-		double end = (distance * 12) / (6);
+	public void arcadeDrive(double y, double x){
+		rightMotor.setInverted(true);
+		drive.arcadeDrive(y, x);
+		
+		SmartDashboard.putNumber("Speed", y);
+		SmartDashboard.putNumber("Direction", x);
 	}
 }

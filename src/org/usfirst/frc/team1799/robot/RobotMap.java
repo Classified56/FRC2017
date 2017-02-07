@@ -11,7 +11,7 @@ public class RobotMap {
 	// following variables to use with your drivetrain subsystem.
 	// public static int leftMotor = 1;
 	// public static int rightMotor = 2;
-	public static int contollerPort = 0;
+	public static int contollerPort = 1;
 	public static int leftMotor = 0;
 	public static int rightMotor = 1;
 	//distance in feet per second at 75% speed
